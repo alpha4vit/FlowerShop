@@ -11,24 +11,24 @@ import java.time.Instant;
 
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
-abstract class AuditEntity<U> {
+abstract class AuditEntity {
 
     @Column(name = "created_at")
     @CreatedDate
     protected Instant createdAt;
 
-    @Column(name = "last_modified_at")
+    @Column(name = "modified_at")
     @LastModifiedDate
-    protected Instant lastModifiedAt;
+    protected Instant modifiedAt;
 
     @ManyToOne
     @JoinColumn(name = "created_by", referencedColumnName = "id")
     @CreatedBy
-    protected U createdBy;
+    protected User createdBy;
 
     @ManyToOne
-    @JoinColumn(name = "last_modified_by", referencedColumnName = "id")
+    @JoinColumn(name = "modified_by", referencedColumnName = "id")
     @LastModifiedBy
-    protected U lastModifiedBy;
+    protected User modifiedBy;
 
 }
