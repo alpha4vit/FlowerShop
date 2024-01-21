@@ -6,6 +6,3 @@ spring:
     password: ${POSTGRES_PASSWORD}
     driverClassName: org.postgresql.Driver
     url: jdbc:postgresql://${HOST}:${POSTGRES_PORT}/${POSTGRES_DATABASE}?currentSchema=${POSTGRES_SCHEMA}
-  jpa:
-    hibernate:
-      ddlAuto: create-drop
